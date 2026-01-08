@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <header id="intro" class="d-flex flex-column">
+    <div class="d-flex justify-content-center align-items-center">
+      <i class="fa-solid fa-dice fs-1 text-success"></i>
+      <h1 id="game-title" class="fw-bolder text-center text-success mt-5">Dice 'N Roll</h1>
+    </div>
+    <div id="menu" class="container d-flex justify-content-center align-items-center">
+      <div id="menu-list" class="rounded-4 d-flex flex-column justify-content-around align-items-center py-4">
+
+        <button id="play-btn" type="button"
+          class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4">Play</button>
+        <button type="button" class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4" data-bs-toggle="modal"
+          data-bs-target="#rules">Rules</button>
+        <button type="button" class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4">About Me</button>
+        <button type="button" class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4">Contact Me</button>
+      </div>
+      <div id="game-mode" class="rounded-4 d-flex flex-column justify-content-around align-items-center py-4 d-none">
+        <button id="doubles" type="button" class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4">2 Dices</button>
+        <button id="triples" type="button" class="btn bg-info rounded-3 bg-opacity-75 text-white w-50 fs-4">3 Dices</button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- play table -->
+
+  <main>
+    <section id="playground" class="container-fluid min-vh-100 position-relative d-none">
+
+      <div class="row m-0 pt-3 pb-4 bg-black bg-opacity-25 gy-3">
+        <div class="offset-md-1 col-4 col-md-2">
+          <div class="inner">
+            <span id="plyerName" class="badge bg-primary bg-opacity-75 p-2 fs-4 ">Player name: </span>
+          </div>
+        </div>
+        <div class="offset-md-2 col-8 col-md-2 text-end text-md-center">
+          <div class="inner">
+            <span id="mode" class="badge bg-primary bg-opacity-75 p-2 fs-4 ">Mode: </span>
+          </div>
+        </div>
+        <div class="offset-md-2 col-12 col-md-2 text-center">
+          <div class="inner">
+            <span id="totalScore" class="badge bg-primary bg-opacity-75 p-2 fs-4 ">Total Score: 0</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="dice-container" class="d-flex justify-content-center align-items-center">
+        
+
+      </div>
+      <h2 id="sum" class="text-center mt-5 fs-1 text-white">Sum: 0</h2>
+      <h2 id="roundScore" class="text-center mt-4 text-white">Score This Round: 0</h2>
+
+      <div class="position-absolute start-50 bottom-0 translate-middle-x">
+        <button id="start-roll" class="start-btn btn btn-success fs-4 mb-3">Start Rolling</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- modules -->
+
+  <div class="modal fade" id="rules" tabindex="-1" aria-labelledby="rulesLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-3" id="rulesLabel">How To Play</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-6 text-center">
+            <span class="fs-2 text-warning">Game Setup</span>
+            <br>
+            The game is played by rolling two dice (later rounds may use three dice).
+            <br>
+            Players earn or lose points based on the dice results.
+
+            <br>
+            <span class="fs-3 text-primary">Scoring Rules (Two Dice)</span>
+            <br>
+            <span class="text-info fs-4">Exact Sums</span>
+            <br>
+
+            If the total is 5, gain +1 point.
+            <br>
+            If the total is 10, gain +2 points.
+
+            <br>
+            <span class="text-info fs-4">Medium Sums</span>
+            <br>
+
+            If the total is greater than 5 and less than 10 (6–9), lose −1 point.
+
+            <br>
+            <span class="text-info fs-4">High Sums</span>
+            <br>
+
+            If the total is greater than 10 (11–12), lose −2 points.
+
+            <br>
+            <span class="text-info fs-4">Low Sums</span>
+            <br>
+
+            If the total is less than 5 (2–4), no points are gained or lost.
+
+            <br>
+            <span class="fs-4 text-danger">Doubles (Special Rule)</span>
+            <br>
+
+            If both dice show the same number, gain points equal to that number.
+            <br>
+            Examples:
+            <br>
+            2 & 2 → +2 points
+            <br>
+            6 & 6 → +6 points
+            <br>
+            Doubles override all other rules.
+
+            <br>
+            <span class="fs-3 text-primary">Three Dice Mode</span>
+            <br>
+
+            When using three dice, the same rules apply:
+            Scoring is based on the total sum.
+            If all dice show the same number, the player gains points equal to that number.
+            <br>
+            Example: 4, 4, 4 → +4 points
+          </p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

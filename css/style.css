@@ -1,0 +1,129 @@
+/* ######### */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/dice-table-background.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+/* ###################################### */
+
+#game-title {
+  font-size: 5rem;
+}
+
+#menu {
+  height: 70vh;
+}
+
+#menu-list , #game-mode {
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 40%;
+}
+
+#menu-list button, #game-mode button {
+  margin: 10px;
+}
+
+#rules {
+  overflow: hidden;
+}
+
+.modal-dialog {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-margin-left: 100px;
+}
+
+
+/* ##################### */
+
+#playground {
+  background-image: url(../images/dice-table.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.start-btn {
+  padding: 8px 80px;
+}
+
+/* Dice */
+
+
+.dice {
+  width: 80px;
+  height: 80px;
+  perspective: 400px;
+  margin: 40px auto;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  /* transform: rotateX(-25deg) rotateY(30deg); */
+}
+
+.face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  backface-visibility: hidden;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+}
+
+/* Cube positioning */
+.front {
+  transform: rotateY(0deg) translateZ(40px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(40px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(40px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(40px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(40px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(40px);
+}
+
+.animate {
+  animation: spin 0.1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(0) rotateY(0);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
